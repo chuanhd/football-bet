@@ -1,12 +1,4 @@
-import {
-  FixturePeriod,
-  FixtureVenue,
-  FixtureStatus,
-  FixtureLeague,
-  FixtureTeam,
-  FixtureGoal,
-  FixtureScore,
-} from '../models/fixture.model';
+import { FixturePeriod, FixtureVenue, FixtureStatus } from '../models/fixture.model';
 
 export default interface FixtureDTO {
   readonly id: number;
@@ -24,12 +16,4 @@ export default interface FixtureDTO {
   readonly venue: FixtureVenue;
 
   readonly status: FixtureStatus;
-
-  readonly league: FixtureLeague;
-
-  readonly teams: Array<FixtureTeam>;
-
-  readonly goal: FixtureGoal;
-
-  readonly score: FixtureScore;
 }

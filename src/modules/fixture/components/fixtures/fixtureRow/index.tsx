@@ -1,12 +1,12 @@
-import Fixture from '../../../models/fixture.model';
+import Match from '../../../models/match.model';
 
 interface IFixtureRowProps {
-  fixture: Fixture;
+  match: Match;
 }
 
 const FixtureRow = function FixtureRow(props: IFixtureRowProps) {
-  const { fixture } = props;
-  const [homeTeam, awayTeam] = fixture.teams;
+  const { match } = props;
+  const { home: homeTeam, away: awayTeam } = match.teams;
 
   return (
     <div>

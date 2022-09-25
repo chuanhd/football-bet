@@ -22,6 +22,11 @@ export type FixtureTeam = {
   winner: boolean;
 };
 
+export type FixtureTwoTeams = {
+  home: FixtureTeam;
+  away: FixtureTeam;
+};
+
 export type FixtureLeague = {
   id: number;
   name: string;
@@ -60,14 +65,6 @@ export default interface Fixture {
   readonly venue: FixtureVenue;
 
   readonly status: FixtureStatus;
-
-  readonly league: FixtureLeague;
-
-  readonly teams: Array<FixtureTeam>;
-
-  readonly goal: FixtureGoal;
-
-  readonly score: FixtureScore;
 
   // constructor({
   //   id,

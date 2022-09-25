@@ -11,10 +11,6 @@ export default class FixtureUtil {
       periods: fixtureDTO.periods,
       venue: fixtureDTO.venue,
       status: fixtureDTO.status,
-      league: fixtureDTO.league,
-      teams: fixtureDTO.teams,
-      goal: fixtureDTO.goal,
-      score: fixtureDTO.score,
       referee: fixtureDTO.referee,
     };
   }

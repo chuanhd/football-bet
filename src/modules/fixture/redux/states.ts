@@ -1,11 +1,11 @@
-import Fixture from '../models/fixture.model';
+import Match from '../models/match.model';
 
 export interface FixtureState {
   isFetchingNextFixtures: boolean;
   isFetchingNextFixturesSuccess: boolean;
   isFetchingNextFixturesFailure: boolean;
 
-  nextFixtures: Fixture[];
+  nextFixtures: Match[];
 
   error: string;
 }

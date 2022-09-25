@@ -1,7 +1,7 @@
 import actions, { FixtureActionType } from './actions';
-import Fixture from '../models/fixture.model';
+import Match from '../models/match.model';
 
-type FixtureActionPayloadType = Fixture | Fixture[] | string;
+type FixtureActionPayloadType = Match | Match[] | string;
 export type FixtureAction = { [key: string]: FixtureActionType | FixtureActionPayloadType };
 
 function fetchNextFixtures(): FixtureAction {
@@ -10,10 +10,11 @@ function fetchNextFixtures(): FixtureAction {
   };
 }
 
-function fetchNextFixturesSuccess(fixtures: Fixture[]): FixtureAction {
+function fetchNextFixturesSuccess(matches: Match[]): FixtureAction {
+  console.log(`fetchNextFixturesSuccess invoked`);
   return {
     type: actions.FETCHING_NEXT_FIXTURES_SUCCESS,
-    fixtures,
+    fixtures: matches,
   };
 }
 

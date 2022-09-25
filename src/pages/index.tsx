@@ -7,31 +7,31 @@ import { FixtureState } from '../modules/fixture/redux/states';
 import { RootState, AppDispatch } from '../shared/utils/TypesDeclarations';
 
 interface FixturesListPageProps extends fixtureOperators.IFixtureOperations {
-  fixtures: FixtureState;
+  matches: FixtureState;
 }
 
 const FixturesListPage = function IndexPage(props: FixturesListPageProps) {
   const [numOfNextFixtures] = useState(10);
 
-  const { fixtures, fetchNextFixtures } = props;
+  const { matches, fetchNextFixtures } = props;
 
   useEffect(() => {
     fetchNextFixtures(numOfNextFixtures);
-  }, [numOfNextFixtures, fetchNextFixtures]);
+  }, [fetchNextFixtures, numOfNextFixtures]);
 
   return (
     <div>
       <h2> Next {numOfNextFixtures} fixtures of Premier League</h2>
       <div>
-        {fixtures.nextFixtures.map((fixture) => (
-          <FixtureRow key={fixture.id} fixture={fixture} />
+        {matches.nextFixtures.map((match) => (
+          <FixtureRow key={match.fixture.id} match={match} />
         ))}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state: RootState) => ({ fixtures: state.fixture });
+const mapStateToProps = (state: RootState) => ({ matches: state.fixture });
 
 function mapActionCreatorsToProps(dispatch: AppDispatch) {
   return bindActionCreators(

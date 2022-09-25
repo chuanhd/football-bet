@@ -3,7 +3,7 @@ import initialFixtureState, { FixtureState } from './states';
 
 import actions, { FixtureActionType } from './actions';
 import { ReduxUtils } from '../../../shared/utils/ReduxUtils';
-import Fixture from '../models/fixture.model';
+import Match from '../models/match.model';
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
 export default function fixture(state: FixtureState = initialFixtureState, action: FixtureAction): FixtureState {
@@ -14,12 +14,15 @@ export default function fixture(state: FixtureState = initialFixtureState, actio
         ...ReduxUtils.reportEventStatus('isFetchingNextFixtures'),
         error: '',
       };
-    case actions.FETCHING_NEXT_FIXTURES_SUCCESS:
-      return {
+    case actions.FETCHING_NEXT_FIXTURES_SUCCESS: {
+      const newState = {
         ...state,
         ...ReduxUtils.reportEventStatus('isFetchingNextFixtures', true),
-        nextFixtures: action.fixtures as Fixture[],
+        nextFixtures: action.fixtures as Match[],
       };
+      console.log(`reducer handle ${actions.FETCHING_NEXT_FIXTURES_SUCCESS} -> ${JSON.stringify(newState)}`);
+      return newState;
+    }
     case actions.FETCHING_NEXT_FIXTURES_FAILURE:
       return {
         ...state,

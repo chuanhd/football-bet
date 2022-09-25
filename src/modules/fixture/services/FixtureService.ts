@@ -1,12 +1,12 @@
 import { AxiosError } from 'axios';
 import { APIResponse } from '../../../shared/infra/services/APIResponse';
 import BaseAPI from '../../../shared/infra/services/BaseAPI';
-import Fixture from '../models/fixture.model';
-import FixtureDTO from '../dtos/fixture.dto';
 import apiConfig from '../../../config/api';
-import FixtureUtil from '../utils/FixtureUtil';
 import Result from '../../../shared/core/Result';
 import { left, right } from '../../../shared/core/Either';
+import Match from '../models/match.model';
+import MatchDTO from '../dtos/match.dto';
+import MatchUtils from '../utils/MatchUtils';
 
 export type FootballAPICommonResponseType<T> = {
   results: number;
@@ -19,7 +19,7 @@ export type FootballAPICommonResponseType<T> = {
 };
 
 export interface IFixtureService {
-  fetchNextFixtures(numOfFixture: number): Promise<APIResponse<Fixture[]>>;
+  fetchNextFixtures(numOfFixture: number): Promise<APIResponse<Match[]>>;
 }
 
 export class FixtureService extends BaseAPI implements IFixtureService {
@@ -27,7 +27,7 @@ export class FixtureService extends BaseAPI implements IFixtureService {
 
   static readonly TargetSeason = 2022;
 
-  async fetchNextFixtures(numOfFixture = 10): Promise<APIResponse<Fixture[]>> {
+  async fetchNextFixtures(numOfFixture = 10): Promise<APIResponse<Match[]>> {
     try {
       const header = {
         'X-RapidAPI-Key': apiConfig.apiKey,
@@ -40,11 +40,9 @@ export class FixtureService extends BaseAPI implements IFixtureService {
         next: numOfFixture,
       };
 
-      const response = await this.get<FootballAPICommonResponseType<Fixture>>('/fixtures', params, header);
+      const response = await this.get<FootballAPICommonResponseType<Match>>('/fixtures', params, header);
 
-      return right(
-        Result.ok<Fixture[]>(response.data.response.map((fixture: FixtureDTO) => FixtureUtil.toViewModel(fixture))),
-      );
+      return right(Result.ok<Match[]>(response.data.response.map((match: MatchDTO) => MatchUtils.toViewModel(match))));
     } catch (err) {
       if (err instanceof AxiosError && err.response) {
         return left(err.response.data.message);
