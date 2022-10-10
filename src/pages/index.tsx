@@ -13,11 +13,19 @@ interface FixturesListPageProps extends fixtureOperators.IFixtureOperations {
 const FixturesListPage = function IndexPage(props: FixturesListPageProps) {
   const [numOfNextFixtures] = useState(10);
 
-  const { matches, fetchNextFixtures } = props;
+  const { matches, fetchNextFixtures, createIfNotExistContractForFixtures } = props;
 
   useEffect(() => {
+    console.log(`invoked fetchNextFixtures`);
     fetchNextFixtures(numOfNextFixtures);
-  }, [fetchNextFixtures, numOfNextFixtures]);
+  }, [numOfNextFixtures, fetchNextFixtures]);
+
+  useEffect(() => {
+    console.log(`invoked createIfNotExistContractForFixtures`);
+    matches.nextFixtures.forEach((match) => {
+      createIfNotExistContractForFixtures(match.fixture.id);
+    });
+  }, [matches.nextFixtures, createIfNotExistContractForFixtures]);
 
   return (
     <div>

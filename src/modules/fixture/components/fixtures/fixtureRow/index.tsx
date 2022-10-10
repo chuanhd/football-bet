@@ -17,8 +17,9 @@ const FixtureRow = function FixtureRow(props: IFixtureRowProps) {
         <button type="button">Bet for {homeTeam.name} win</button>
       </div>
       <div className="match-time-container">
-        <p>18:30</p>
-        <p>01 Oct</p>
+        <p>{match.fixture.hour}</p>
+        <p>{match.fixture.date}</p>
+        <button type="button">Bet for draw</button>
       </div>
       <div className="away-team-container">
         <img className="team-logo" src={awayTeam.logo} alt="away team logo" />

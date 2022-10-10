@@ -1,4 +1,4 @@
-import fixtureService from '../../services';
+import { fixtureService } from '../../services';
 import * as actionCreators from '../actionCreators';
 
 function fetchNextFixtures(numOfNextFixtures = 10) {

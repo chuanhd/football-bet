@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "@truffle/hdwallet-provider": "^2.0.16",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.3",
     "fs-extra": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,6 +28,7 @@
     "solc": "^0.8.17",
     "web3": "^1.8.0",
     "web3-core": "^1.8.0",
+    "web3-eth-contract": "^1.8.0",
     "web3-utils": "^1.8.0"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@ import FootballBetFactory from './build/FootballBetFactory.json';
 
 const instance = new web3.eth.Contract(
   FootballBetFactory.abi as AbiItem[],
-  '0x205735d7376F199aD76bc4f30F299DADD2DfE659',
+  '0xa1166b253C955136023259d464d087eF76D0938A',
 );
 
 export default instance;

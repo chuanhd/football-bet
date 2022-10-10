@@ -6,9 +6,9 @@ const router = createBrowserRouter(createRoutesFromElements(<Route path="/" elem
 
 function App() {
   return (
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    // <React.StrictMode>
+    <RouterProvider router={router} />
+    // </React.StrictMode>
   );
 }
 

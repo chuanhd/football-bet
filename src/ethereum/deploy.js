@@ -6,7 +6,7 @@ const compiledFactory = require('./build/FootballBetFactory.json');
 const provider = new HDWalletProvider(
   'twist omit west bind cloth now round web hurry tomorrow swallow hedgehog',
   // remember to change this to your own phrase!
-  'https://rinkeby.infura.io/v3/7a18cd68f3ea4ad083eff69e644771d3',
+  'https://sepolia.infura.io/v3/933a6f13718947448cac4a6a07a93099',
   // remember to change this to your own endpoint!
 );
 const web3 = new Web3(provider);

@@ -1,3 +1,4 @@
+import format from 'date-fns/format';
 import Fixture from '../models/fixture.model';
 import FixtureDTO from '../dtos/fixture.dto';
 
@@ -6,7 +7,8 @@ export default class FixtureUtil {
     return {
       id: fixtureDTO.id,
       timezone: fixtureDTO.timezone,
-      date: fixtureDTO.date,
+      date: format(fixtureDTO.timestamp, 'MMM do yyyy'),
+      hour: format(fixtureDTO.timestamp, 'p'),
       timestamp: fixtureDTO.timestamp,
       periods: fixtureDTO.periods,
       venue: fixtureDTO.venue,

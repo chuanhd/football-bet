@@ -49,6 +49,9 @@ export type FixtureScore = {
   penalty: FixtureGoal;
 };
 
+export type ContractAddress = string;
+export type ContractAddressForMatch = Record<string, string>;
+
 export default interface Fixture {
   readonly id: number;
 
@@ -58,6 +61,8 @@ export default interface Fixture {
 
   readonly date: string;
 
+  readonly hour: string;
+
   readonly timestamp: number;
 
   readonly periods: FixturePeriod;
@@ -65,6 +70,8 @@ export default interface Fixture {
   readonly venue: FixtureVenue;
 
   readonly status: FixtureStatus;
+
+  readonly address?: string;
 
   // constructor({
   //   id,
